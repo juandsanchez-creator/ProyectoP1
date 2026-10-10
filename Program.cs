@@ -20,10 +20,21 @@ namespace SistemaAcademico
             Console.WriteLine("========================================");
 
              // PRUEBAS DE VALIDACIÓN:
-            string nombre = LeerTextoNoVacio("Ingrese nombre del estudiante: ");
-            int estudiantes = LeerEnteroEnRango("Cantidad de estudiantes (3-10): ", MinEstudiantes, MaxEstudiantes);
+            // --- PARTE 4: MÓDULO DE CONFIGURACIÓN INICIAL (DIMENSIONAMIENTO) ---
+            Console.WriteLine("\n--- CONFIGURACIÓN INICIAL DEL CURSO ---");
+            
+            // 1. Solicitar y validar dimensiones usando las constantes ya definidas
+            int cantidadEstudiantes = LeerEnteroEnRango($"Ingrese la cantidad de estudiantes ({MinEstudiantes}-{MaxEstudiantes}): ", MinEstudiantes, MaxEstudiantes);
+            int cantidadEvaluaciones = LeerEnteroEnRango($"Ingrese la cantidad de evaluaciones ({MinEvaluaciones}-{MaxEvaluaciones}): ", MinEvaluaciones, MaxEvaluaciones);
 
-            Console.WriteLine($"\nDatos válidos recibidos: {nombre}, {estudiantes} estudiantes.");
+            // 2. Instanciar las estructuras fijas con los tamaños validados
+            string[] nombres = new string[cantidadEstudiantes];
+            int[,] calificaciones = new int[cantidadEstudiantes, cantidadEvaluaciones];
+
+            Console.WriteLine("\n[✓] Sistema dimensionado correctamente:");
+            Console.WriteLine($"    - Estudiantes registrados para el curso: {nombres.Length}");
+            Console.WriteLine($"    - Evaluaciones por estudiante: {calificaciones.GetLength(1)}");
+
         }
 
         // --- MÉTODOS DE VALIDACIÓN ROBUSTA ---
