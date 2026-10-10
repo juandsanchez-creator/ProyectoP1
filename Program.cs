@@ -35,6 +35,33 @@ namespace SistemaAcademico
             Console.WriteLine($"    - Estudiantes registrados para el curso: {nombres.Length}");
             Console.WriteLine($"    - Evaluaciones por estudiante: {calificaciones.GetLength(1)}");
 
+
+            // --- PARTE 5: MENÚ PRINCIPAL INTERACTIVO ---
+            int opcion;
+            do
+            {
+                MostrarMenu();
+                opcion = LeerEnteroEnRango("Opción: ", 0, 7);
+
+                switch (opcion)
+                {
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                        Console.WriteLine("\n[!] En construcción...");
+                        break;
+                    case 0:
+                        Console.WriteLine("\nSaliendo del sistema... ¡Hasta pronto!");
+                        break;
+                }
+
+            } while (opcion != 0);
+
+
         }
 
         // --- MÉTODOS DE VALIDACIÓN ROBUSTA ---
@@ -72,6 +99,23 @@ namespace SistemaAcademico
 
                 Console.WriteLine("Error: El texto no puede estar vacío ni contener solo espacios.");
             }
+        }
+
+        // --- MÉTODO DEL MENÚ --- parte 5
+        static void MostrarMenu()
+        {
+            Console.WriteLine("\n========================================");
+            Console.WriteLine("            MENÚ PRINCIPAL              ");
+            Console.WriteLine("========================================");
+            Console.WriteLine("1. Registrar nombres de estudiantes");
+            Console.WriteLine("2. Ingresar calificaciones");
+            Console.WriteLine("3. Ver reporte general de calificaciones");
+            Console.WriteLine("4. Ver promedio por estudiante");
+            Console.WriteLine("5. Ver promedio por evaluación");
+            Console.WriteLine("6. Ver estudiante con mayor promedio");
+            Console.WriteLine("7. Ver estudiante con menor promedio");
+            Console.WriteLine("0. Salir");
+            Console.WriteLine("========================================");
         }
 
     }
